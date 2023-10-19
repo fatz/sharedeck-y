@@ -1,0 +1,32 @@
+name: Build Plugin snapshot ZIP
+on:
+  pull_request:
+    branches: main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.2.0
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+      - run: npm install
+      - name: Build
+        run: pnpm run build
+        shell: bash
+      - name: Create Decky zip
+        run: |
+          zip -r sharedeck-y.zip dist/ README.md LICENSE package.json plugin.json
+      - name: Archive zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: sharedeck-y
+          path: sharedeck-y*.zip
