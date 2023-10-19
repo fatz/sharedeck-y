@@ -25,7 +25,9 @@ jobs:
         shell: bash
       - name: Create Decky zip
         run: |
-          zip -r sharedeck-y.zip dist/ README.md LICENSE package.json plugin.json
+          mkdir sharedeck-y
+          cp -r dist/ README.md LICENSE package.json plugin.json sharedeck-y/
+          zip -r sharedeck-y.zip sharedeck-y
       - name: Archive zip
         uses: actions/upload-artifact@v3
         with:
