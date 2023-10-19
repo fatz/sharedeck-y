@@ -1,7 +1,8 @@
 name: Build Plugin snapshot ZIP
 on:
-  tag:
-    - v*
+  push:
+    tags:
+      - v*
 jobs:
   build:
     runs-on: ubuntu-latest
