@@ -2,7 +2,6 @@ import {
 	Navigation,
 	QuickAccessTab,
 	ServerAPI,
-	SideMenu,
 	staticClasses,
 } from "decky-frontend-lib"
 

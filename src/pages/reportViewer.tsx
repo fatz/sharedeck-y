@@ -4,7 +4,6 @@ import {
 	PanelSection,
 	PanelSectionRow,
 	Router,
-	ServerAPI,
 } from "decky-frontend-lib"
 import { useContext, useEffect, useState } from "react"
 
